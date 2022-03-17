@@ -123,5 +123,6 @@ If an other error occured, not a common one, the error card will be displayed wi
 If no error was encountered, the pop-up will turn in green : <br/>
 ![image](https://user-images.githubusercontent.com/80652315/158837835-e8a59533-78ba-4b44-9a5c-394253511900.png)
 
+<br/>
 
-Thanks for watching my project ! Hope you enyoed it, if you have any idea or issues to report don't hesitate !
+#### Thanks for watching my project ! Hope you enjoyed it, if you have any idea or issues to report don't hesitate !
