@@ -1,4 +1,4 @@
-// Données pour l'API Binance
+// Binance API datas
 const binanceAPI = {
   APIKEY: "YOUR_API_KEY",
   SKEY: "YOUR_SECRET_KEY",
@@ -18,7 +18,7 @@ function cardGlobalStyle(el) {
   el.style.justifyContent = "center";
   el.style.alignItems = "center";
 }
-// Carte qui contient le formulaire
+// Card that contain the form (the inputs)
 const card = document.createElement("div");
 function cardStyle() {
   card.style.width = "30px";
@@ -27,12 +27,18 @@ function cardStyle() {
 }
 cardGlobalStyle(card);
 cardStyle();
-card.style.backgroundColor = "white";
+// We check if we are in dark or light mode
+const darkModeDiv = document.querySelector('.css-4lf95n');
+let cardBackgroundColor = "white";
+if(!darkModeDiv) {
+  cardBackgroundColor = "gold";
+}
+card.style.backgroundColor = cardBackgroundColor;
 card.style.top = "8%";
 card.style.transition =
   "width .3s, height .3s, border-radius .3s, background-color .4s";
 
-// On récupère la précédente position de la card dans le localStorage
+// We take the last position of the card in localStorage
 let cardPosition = JSON.parse(localStorage.getItem("cardPosition"));
 if (cardPosition) {
   card.style.top = cardPosition.cardTop;
@@ -55,7 +61,7 @@ function cardSuccess() {
   window.setTimeout(whiteCard, 500);
 }
 
-//Card pour les erreurs
+// Errors card
 const errorCard = document.createElement("div");
 cardGlobalStyle(errorCard);
 errorCard.style.height = "100px";
@@ -66,10 +72,10 @@ errorCard.style.top = "36%";
 errorCard.style.transform = "translateX(500%)";
 errorCard.style.transition = "transform .4s";
 const titleError = document.createElement("span");
-titleError.innerHTML = "Erreur :";
+titleError.innerHTML = "Error :";
 titleError.style.fontWeight = "bold";
 const messageError = document.createElement("span");
-messageError.innerHTML = "Message d'erreur";
+messageError.innerHTML = "Error message";
 messageError.style.textAlign = "center";
 messageError.style.marginTop = "3%";
 errorCard.appendChild(titleError);
@@ -91,26 +97,26 @@ function createInput(el, placeholder) {
   el.setAttribute("placeholder", placeholder);
 }
 
-//Création du formulaire
+// Creation of the form
 const form = document.createElement("form");
 form.style.display = "none";
 form.setAttribute("action", "#");
 
-//Input pour la paire de crypto
+// Input for the crypto pair
 const nameInput = document.createElement("input");
 createInput(nameInput, "Crypto pair");
 const cryptoName = document
-  .querySelector(".css-1qkv3vk")
-  .firstElementChild.textContent.trim();
+  .querySelector("h1")
+  .textContent.trim();
 const pairCrypto = cryptoName.replace("/", "");
 nameInput.value = pairCrypto;
 
-//Input pour remplir le montant à trade
+//Input for the amount to trade
 const amountInput = document.createElement("input");
 createInput(amountInput, "Amount");
 amountInput.style.marginTop = "10px";
 
-//Input pour le prix
+//Input for the current price
 const priceInput = document.createElement("input");
 createInput(priceInput, "Current Price");
 priceInput.style.marginTop = "10px";
@@ -122,7 +128,7 @@ const amountDecimal = amountValueToChange.toString().split(".")[1];
 const amountDecimalLength = amountDecimal ? amountDecimal.length : 0;
 priceInput.value = parseFloat(priceCrypto).toFixed(amountDecimalLength);
 
-// Fonction quand le prix est changé
+// Function when the price is change by the user
 function changePriceFunc(input, isAugmented) {
   const amountValueToChange = parseFloat(
     document.querySelector(".primary").textContent.trim()
@@ -140,7 +146,7 @@ function changePriceFunc(input, isAugmented) {
     );
   }
 }
-// On ajoute les addEventListener sur le priceInput
+// Add event listeners to the price input
 priceInput.addEventListener("mousedown", (ev) => {
   if (document.activeElement === priceInput) {
     if (ev.buttons === 1) {
@@ -175,7 +181,7 @@ priceInput.addEventListener("wheel", (ev) => {
   }
 });
 
-//Div avec les inputs des pourcentages de diff.
+// Div that contains inputs for buying and selling price
 const pricesDiv = document.createElement("div");
 pricesDiv.style.display = "flex";
 pricesDiv.style.justifyContent = "center";
@@ -186,8 +192,8 @@ const sellPriceInput = document.createElement("input");
 sellPriceInput.style.marginLeft = "2%";
 pricesDiv.appendChild(sellPriceInput);
 
-//On crée un array pour les placeholders car ils sont définis dans
-//la fonction "createInput" qui est appelé dans la boucle juste en dessous
+//We create an array with the placeholders for the inputs
+//We use it as a param in the function createInput in the loop below
 const placeholderArray = ["Buying price", "Selling price"];
 
 for (let i = 0; i < pricesDiv.children.length; i++) {
@@ -251,12 +257,12 @@ function calculPricesFunc() {
 }
 calculPricesFunc();
 
-//Input de submit du formulaire
+//Creation of the submit input 
 const submitInput = document.createElement("input");
 submitInput.setAttribute("type", "submit");
 submitInput.style.marginTop = "20px";
 submitInput.style.cursor = "pointer";
-submitInput.value = "Envoyer";
+submitInput.value = "Send";
 
 function callAPI(side, amount, price) {
   let queryString = `symbol=${pairCrypto}&side=${side}&type=LIMIT&timeInForce=GTC&quantity=${amount}&price=${price}&recvWindow=20000&timestamp=${Date.now()}`;
@@ -294,7 +300,7 @@ form.addEventListener("submit", (e) => {
   const total = amount * price;
 
   let balances, balanceUSDT, balanceCrypto;
-  // Si la page contient cette classe alors on est sur le mode pro
+  // If the page contains this class then we are on the pro mode
   if (document.querySelector(".css-1g37knx")) {
     balances = document.querySelectorAll(".css-1iqe90x");
     balanceUSDT = parseFloat(
@@ -304,7 +310,7 @@ form.addEventListener("submit", (e) => {
       balances[balances.length - 2].innerHTML.trim()
     ).toFixed(3);
   }
-  // Sinon on est sur le mode classique
+  // Else we are on classique mode
   else {
     balances = document.querySelectorAll(".css-k4h8bj");
     balanceUSDT = parseFloat(balances[0].firstChild.textContent.trim()).toFixed(
@@ -317,13 +323,13 @@ form.addEventListener("submit", (e) => {
 
   const minUSDT = 10;
   if (total < minUSDT) {
-    showErrorCard(`Il faut trader un minimum de ${minUSDT} USDT`);
+    showErrorCard(`You need to trade a minimum of ${minUSDT} USDT`)
     cardError();
   } else if (!balanceUSDT || isNaN(balanceUSDT) || balanceUSDT < total) {
-    showErrorCard("Pas assez d'USDT");
+    showErrorCard("Not enough USDT");
     cardError();
   } else if (!balanceCrypto || isNaN(balanceCrypto) || balanceCrypto < amount) {
-    showErrorCard(`Pas assez de ${pairCrypto.replace("USDT", "")}`);
+    showErrorCard(`Not enough ${pairCrypto.replace("USDT", "")}`);
     cardError();
   } else {
     callAPI("BUY", amount, buyPriceInput.value);
@@ -348,14 +354,14 @@ plusSpan.style.userSelect = "none";
 
 let justClicked = false;
 plusSpan.addEventListener("click", (e) => {
-  // On empêche le spamClick pour éviter les bugs
+  // To avoid issues when opening and closing the pop-up, we prevent spam click
   if (justClicked) return;
   justClicked = true;
   setTimeout(() => {
     justClicked = false;
   }, 200);
 
-  // Si on ne vient pas de déplacer la card alors on ouvre/ferme la card
+  // If we haven't just move the pop-up, we open/close it
   if (!hasMoved) {
     const target = e.target;
     if (target.innerHTML === "+") {
@@ -395,11 +401,11 @@ plusSpan.addEventListener("click", (e) => {
 
 let hasMoved = false;
 let oldX, oldY;
-// Fonction pour bouger la carte avec la souris
+// Function to move the card with the mouse
 function moveCard(e) {
   card.style.top = `${e.clientY - 15}px`;
   card.style.left = `${e.clientX - 15}px`;
-  // On vérifie si on a déplacé la card pour savoir si on l'ouvre ou pas
+  // We check if we move the card to know if we open it or not
   if (oldY !== card.style.top || oldX !== card.style.left) {
     hasMoved = true;
   }
@@ -419,7 +425,7 @@ card.addEventListener("mouseup", () => {
     isClicked = false;
     window.removeEventListener("mousemove", moveCard);
 
-    // On sauvegarde la nouvelle position dans le localStorage
+    // We save the new position if the localStorage 
     if (hasMoved) {
       localStorage.setItem(
         "cardPosition",
