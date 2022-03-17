@@ -104,7 +104,7 @@ form.setAttribute("action", "#");
 
 // Input for the crypto pair
 const nameInput = document.createElement("input");
-createInput(nameInput, "Crypto pair");
+createInput(nameInput, "Crypto pair (ex: BTCUSDT)");
 const cryptoName = document
   .querySelector("h1")
   .textContent.trim();

@@ -99,3 +99,26 @@ Name your script and then **Copy and paste the app.js from this repository in th
 Example: binance.com/es/trade for spanish*
 
 ### Congrats 🎉 ! You can now use the pop-up !
+
+<br/>
+
+## Errors and Infos
+
+**There is a few more infos to know on this pop-up and on Binance API.**
+
+### Common errors :<br/>
+#### When a common error is encountered the orders are not send.
+&emsp;-Your orders must trade more than 10 USDT, otherwise Binance doesn't accept your orders.<br/>
+That's why when you trade less than 10 USDT, this card appears :<br/>
+![image](https://user-images.githubusercontent.com/80652315/158836787-e3bb5852-3568-444e-ace4-d5cb32669adf.png)<br/>
+&emsp;-You need to have enough USDT/Crypto for your trade.<br />
+Else, this error card appears :<br/>
+![image](https://user-images.githubusercontent.com/80652315/158836896-7b901bf2-79a7-45b2-bfa4-d6233a58cf7f.png)
+![image](https://user-images.githubusercontent.com/80652315/158837358-5c45f464-c78b-4c1c-bc25-6c188a5d70f3.png)
+
+
+If an other error occured, not a common one, the error card will be displayed with the error message.<br/>
+
+### Success : <br/>
+If no error was encountered, the pop-up will turn in green : <br/>
+![image](https://user-images.githubusercontent.com/80652315/158837835-e8a59533-78ba-4b44-9a5c-394253511900.png)
