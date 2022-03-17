@@ -3,8 +3,8 @@
 This pop-up will allows you to send 2 orders easily on Binance (1 buy and 1 sell order).
 
 **IMPORTANT :** <br/>
-&emsp;-You'll need to install 2 Chrome Extensions (see the Installation part) <br/>
-&emsp;-You'll need to create an API key on Binance (see the Installation part) <br/>
+&emsp;-You'll need to create an API key on Binance (see the Installation part, STEP 1) <br/>
+&emsp;-You'll need to install 2 Chrome Extensions (see the Installation part, STEP 2 and 3) <br/>
 &emsp;-You can only trade in USDT for now
 
 <br/>
