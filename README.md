@@ -80,5 +80,22 @@ Click on the "C" or on "Toggle ON". <br/>
 
 The extension is active ! We can now go to step 3 !
 
+<br/>
+
 ### STEP 3: Install the chrome extension "Scripty"
 
+This extension will allow us to add automatically Javascript in a webpage. <br/>
+![image](https://user-images.githubusercontent.com/80652315/158823435-a0e0e77c-5454-45fc-8539-90aa4742cb80.png)
+
+You can now create a new Script by clicking on the extension in your extension bar. <br/>
+Name your script and then **Copy and paste the app.js from this repository in the "Javascript Code" box**. <br/>
+
+**You now need to replace this lines by your binance API keys** <br/>
+![Fourth step](https://user-images.githubusercontent.com/80652315/158825045-37636bfd-add1-4fd8-b617-5a9932343cf5.png)
+
+**Below the Javascript code, add this options** <br/>
+
+*Note: here the code will only execute on "binance.com/en/trade", but if you use Binance in an other language you must replace the language in the URL ---->
+Example: binance.com/es/trade for spanish*
+
+Congrats 🎉 ! You can now use the pop-up !
