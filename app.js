@@ -27,12 +27,7 @@ function cardStyle() {
 }
 cardGlobalStyle(card);
 cardStyle();
-// We check if we are in dark or light mode
-const darkModeDiv = document.querySelector('.css-4lf95n');
-let cardBackgroundColor = "white";
-if(!darkModeDiv) {
-  cardBackgroundColor = "gold";
-}
+let cardBackgroundColor = "#7DBAF7";
 card.style.backgroundColor = cardBackgroundColor;
 card.style.top = "8%";
 card.style.transition =
@@ -120,12 +115,14 @@ amountInput.style.marginTop = "10px";
 const priceInput = document.createElement("input");
 createInput(priceInput, "Current Price");
 priceInput.style.marginTop = "10px";
-const priceCrypto = document.querySelector(".contractPrice").textContent;
+const priceCrypto = document.querySelector(".contractPrice").textContent.replace(',', '');
+// Number of decimals used for this crypto
 const amountValueToChange = parseFloat(
   document.querySelector(".primary").textContent.trim()
 );
 const amountDecimal = amountValueToChange.toString().split(".")[1];
 const amountDecimalLength = amountDecimal ? amountDecimal.length : 0;
+// We set the value of price input to the current price
 priceInput.value = parseFloat(priceCrypto).toFixed(amountDecimalLength);
 
 // Function when the price is change by the user
