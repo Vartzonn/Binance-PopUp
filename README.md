@@ -12,17 +12,17 @@ This pop-up will allows you to send 2 orders easily on Binance (1 buy and 1 sell
 ## Demo
 When you open Binance, this pop-up appears :
 
-![image](https://user-images.githubusercontent.com/80652315/158794758-da56fb19-8e42-49c6-9ab2-5686e0a5d342.png)
+![image](https://user-images.githubusercontent.com/80652315/159311363-f036140f-4f89-4926-a296-439e4be5eba5.png)
 
 When you open the pop-up :
 
-![image](https://user-images.githubusercontent.com/80652315/158795390-686405e4-bef1-47f9-b358-20ea69547e3a.png)
+![Pop-Up](https://user-images.githubusercontent.com/80652315/159327185-446ef0cc-0ce0-45b3-9829-d11279efa23f.png)
 
 On the first load of the page, the script detects the crypto you want to trade and the current price. <br/>
 Then, a buying and a selling price are added in the two inputs below the current price. <br/>
 They are calculated with a percentage: <br/>
 &emsp;-0.2% of the current price for buying price <br/>
-&emsp;-0.3% of the current price for selling price
+&emsp;+0.3% of the current price for selling price
 
 **Note that the prices in the inputs doesn't follow the price on Binance when it changes, it's only on the first load of the page**
 
@@ -37,7 +37,7 @@ The new position you choose will be store in the local storage of your browser.
 To do this, follow this few steps:
 
 **Hover your profil icon in the top right corner and click on API management**<br/>
-![First step](https://user-images.githubusercontent.com/80652315/158799361-312f3d31-ab5e-4eac-9150-ec9e5843d193.png) <br/>
+![First step](https://user-images.githubusercontent.com/80652315/159323791-38214592-cea6-4e32-a70a-0160e36d2b22.png) <br/>
 You can now create your API key with the name you want.
 
 #### **Copy you API key and your secret key, we'll need it later**
@@ -91,7 +91,7 @@ You can now create a new Script by clicking on the extension in your extension b
 Name your script and then **Copy and paste the app.js from this repository in the "Javascript Code" box**. <br/>
 
 **You now need to replace this lines by your binance API keys** <br/>
-![Fourth step](https://user-images.githubusercontent.com/80652315/158825045-37636bfd-add1-4fd8-b617-5a9932343cf5.png)
+![Fourth step](https://user-images.githubusercontent.com/80652315/159314765-5f44ebc0-9172-4ef2-90f5-d0c7102bf5ae.png)
 
 **Below the Javascript code, add this options** <br/>
 
@@ -114,14 +114,14 @@ That's why when you trade less than 10 USDT, this card appears :<br/>
 &emsp;-You need to have enough USDT/Crypto for your trade.<br />
 Else, this error card appears :<br/>
 ![image](https://user-images.githubusercontent.com/80652315/158836896-7b901bf2-79a7-45b2-bfa4-d6233a58cf7f.png)
-![image](https://user-images.githubusercontent.com/80652315/158837358-5c45f464-c78b-4c1c-bc25-6c188a5d70f3.png)
+![image](https://user-images.githubusercontent.com/80652315/159319769-116446ee-d9f4-42aa-9eb7-4fe2905ab449.png)
 
 
 If an other error occured, not a common one, the error card will be displayed with the error message.<br/>
 
 ### Success : <br/>
 If no error was encountered, the pop-up will turn in green : <br/>
-![image](https://user-images.githubusercontent.com/80652315/158837835-e8a59533-78ba-4b44-9a5c-394253511900.png)
+![image](https://user-images.githubusercontent.com/80652315/159320905-6d7fcd7e-e10c-44ce-96c2-5ef213d4c43e.png)
 
 <br/>
 
