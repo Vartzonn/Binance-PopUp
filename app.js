@@ -1,3 +1,9 @@
+// Options value
+const popUpColor = "#7DBAF7";
+const amountValue = 50;
+const percentDiffBuy = 0.2;
+const percentDiffSell = 0.3;
+
 // Binance API datas
 const binanceAPI = {
   APIKEY: "YOUR_API_KEY",
@@ -5,6 +11,7 @@ const binanceAPI = {
   baseUrl: "https://api.binance.com",
   orderEndpoint: "/api/v3/order",
 };
+
 const urlPhpSign = "https://hashphpapi.000webhostapp.com/";
 const body = document.body;
 
@@ -27,8 +34,7 @@ function cardStyle() {
 }
 cardGlobalStyle(card);
 cardStyle();
-let cardBackgroundColor = "#7DBAF7";
-card.style.backgroundColor = cardBackgroundColor;
+card.style.backgroundColor = popUpColor;
 card.style.top = "8%";
 card.style.transition =
   "width .3s, height .3s, border-radius .3s, background-color .4s";
@@ -109,6 +115,7 @@ nameInput.value = pairCrypto;
 //Input for the amount to trade
 const amountInput = document.createElement("input");
 createInput(amountInput, "Amount");
+amountInput.value = amountValue;
 amountInput.style.marginTop = "10px";
 
 //Input for the current price
@@ -233,12 +240,12 @@ function calculPricesFunc() {
   const amountDecimalLength = amountDecimal ? amountDecimal.length : 0;
 
   let calculBuy = parseFloat(
-    (parseFloat(priceInput.value) * (1 - parseFloat(0.2) / 100)).toFixed(
+    (parseFloat(priceInput.value) * (1 - parseFloat(percentDiffBuy) / 100)).toFixed(
       amountDecimalLength
     )
   );
   let calculSell = parseFloat(  
-    (parseFloat(priceInput.value) * (1 + parseFloat(0.3) / 100)).toFixed(
+    (parseFloat(priceInput.value) * (1 + parseFloat(percentDiffSell) / 100)).toFixed(
       amountDecimalLength
     )
   );
