@@ -49,17 +49,17 @@ if (cardPosition) {
   card.style.left = "1.5%";
 }
 
-function whiteCard() {
-  card.style.backgroundColor = "white";
+function backgroundColorCard() {
+  card.style.backgroundColor = popUpColor;
 }
 const errorTime = 1500;
 function cardError() {
   card.style.backgroundColor = "tomato";
-  window.setTimeout(whiteCard, errorTime);
+  window.setTimeout(backgroundColorCard, errorTime);
 }
 function cardSuccess() {
   card.style.backgroundColor = "lightgreen";
-  window.setTimeout(whiteCard, 500);
+  window.setTimeout(backgroundColorCard, 500);
 }
 
 // Errors card
